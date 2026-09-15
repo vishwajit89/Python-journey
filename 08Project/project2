@@ -1,0 +1,25 @@
+import random
+
+CHOICES = {"s": "Snake", "w": "Water", "g": "Gun"}
+
+# key beats value
+BEATS = {
+    "s": "w",   # Snake drinks Water
+    "w": "g",   # Water rusts Gun
+    "g": "s",   # Gun kills Snake
+}
+
+computer = random.choice(list(CHOICES.keys()))
+you = input("Enter your choice (s/w/g): ").strip().lower()
+
+if you not in CHOICES:
+    print("Invalid choice!")
+else:
+    print(f"You chose {CHOICES[you]}\nComputer chose {CHOICES[computer]}")
+
+    if you == computer:
+        print("It's a draw!")
+    elif BEATS[you] == computer:
+        print("You win!")
+    else:
+        print("You lose!")
